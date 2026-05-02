@@ -1,14 +1,3 @@
-/* BBH Bartle: drop the font file at /public/fonts/BBHBartle.woff2 to enable.
-   Falls back to a heavy display stack so the layout is always intact. */
-@font-face {
-  font-family: "BBH Bartle";
-  src: url("/fonts/BBHBartle.woff2") format("woff2"),
-       url("/fonts/BBHBartle.woff") format("woff"),
-       url("/fonts/BBHBartle.otf") format("opentype");
-  font-display: swap;
-  font-weight: 100 900;
-}
-
 * {
   box-sizing: border-box;
   margin: 0;

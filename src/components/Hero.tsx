@@ -2,10 +2,16 @@ import Micrographics from "./Micrographics";
 
 export default function Hero() {
   return (
-    <div className="hero">
-      <Micrographics />
+    <div className="frame">
+      <Micrographics
+        sectionId="00"
+        sectionName="COVER"
+        topLeftStamp={["SECTION A—A", "SCALE 1:1", "SHEET 01 / 04"]}
+        topRightStamp={["DOC# PNK—2026—042", "REV. D", "CLASS II / TYPE B"]}
+        barcode="0—4839—2210—01"
+      />
 
-      <div className="hero__inner">
+      <div className="frame__safe hero">
         <div className="hero__overline tech">
           <span className="hero__pill">MODEL — PNK/03</span>
           <span className="hero__sep">·</span>
