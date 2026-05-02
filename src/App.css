@@ -1,22 +1,13 @@
 /* ============================================================
-   PUNKU — tokens
+   PUNKU — single-tone industrial blue
    ============================================================ */
 
 :root {
-  --bg: #0a0a0a;
-  --fg: #ededed;
-  --fg-dim: #8a8a8a;
-  --fg-line: #2a2a2a;
-
   --bsod: #0537ff;
   --bsod-ink: #ffffff;
   --bsod-ink-dim: rgba(255, 255, 255, 0.7);
-  --bsod-line: rgba(255, 255, 255, 0.4);
-
-  --paper: #f0eee8;
-  --paper-line: #b9b3a5;
-  --ink: #0a0a0a;
-  --ink-dim: #6a665e;
+  --bsod-line: rgba(255, 255, 255, 0.45);
+  --bsod-line-soft: rgba(255, 255, 255, 0.18);
 
   --logo-display: "BBH Bartle", "42dot Sans", "Helvetica Neue", Arial, sans-serif;
   --sans: "42dot Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -28,8 +19,10 @@
 }
 
 /* ============================================================
-   Page / sections
+   Page / sections — all BSOD blue
    ============================================================ */
+
+html, body { background: var(--bsod); color: var(--bsod-ink); }
 
 .page { width: 100%; }
 
@@ -40,12 +33,9 @@
   scroll-snap-stop: always;
   position: relative;
   overflow: hidden;
+  background: var(--bsod);
+  color: var(--bsod-ink);
 }
-
-.page__section--hero { background: var(--bg); }
-.page__section--works { background: var(--bg); color: var(--fg); }
-.page__section--spec { background: var(--paper); color: var(--ink); }
-.page__section--footer { background: var(--bsod); color: var(--bsod-ink); }
 
 /* Frame: outer ring reserved for micrographics, inner safe zone for content */
 .frame {
@@ -84,9 +74,7 @@
   font-size: 24px;
   letter-spacing: 0.02em;
   line-height: 1;
-  color: var(--fg);
-  mix-blend-mode: difference;
-  isolation: isolate;
+  color: var(--bsod-ink);
 }
 
 .topnav {
@@ -97,9 +85,7 @@
   display: flex;
   align-items: center;
   gap: 22px;
-  color: var(--fg);
-  mix-blend-mode: difference;
-  isolation: isolate;
+  color: var(--bsod-ink);
 }
 
 .topnav__link {
@@ -116,7 +102,7 @@
 .topnav__link:hover { opacity: 0.6; }
 
 /* ============================================================
-   Micrographics — corner brackets + section id + barcode only
+   Micrographics
    ============================================================ */
 
 .micro {
@@ -124,12 +110,8 @@
   inset: 0;
   pointer-events: none;
   z-index: 1;
+  color: var(--bsod-line);
 }
-
-.page__section--hero .micro,
-.page__section--works .micro { color: var(--fg-dim); }
-.page__section--spec .micro { color: var(--ink-dim); }
-.page__section--footer .micro { color: var(--bsod-line); }
 
 .micro__bracket { position: absolute; }
 .micro__bracket--tl { top: 24px; left: 24px; }
@@ -144,6 +126,7 @@
   font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
+  color: var(--bsod-ink-dim);
 }
 
 .micro__barcode {
@@ -153,6 +136,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  color: var(--bsod-ink-dim);
 }
 
 .micro__barcode svg { display: block; }
@@ -166,7 +150,7 @@
    HERO
    ============================================================ */
 
-.hero { gap: 24px; color: var(--fg); }
+.hero { gap: 24px; }
 
 .hero__title {
   font-family: var(--logo-display);
@@ -181,25 +165,25 @@
   font-size: 12px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--fg-dim);
+  color: var(--bsod-ink-dim);
 }
 
 .hero__sub .amp {
   font-size: 1.3em;
   font-style: italic;
-  color: var(--fg);
+  color: var(--bsod-ink);
 }
 
 .hero__lede {
   max-width: 56ch;
   font-size: clamp(1rem, 1.1vw, 1.15rem);
   line-height: 1.55;
-  color: #c8c8c8;
+  color: var(--bsod-ink-dim);
   font-weight: 300;
 }
 
 .hero__lede .amp {
-  color: var(--fg);
+  color: var(--bsod-ink);
   font-size: 1.2em;
   font-style: italic;
 }
@@ -218,8 +202,8 @@
   align-items: center;
   gap: 12px;
   padding: 12px 18px;
-  border: 1px solid var(--fg);
-  color: var(--fg);
+  border: 1px solid var(--bsod-ink);
+  color: var(--bsod-ink);
   text-decoration: none;
   font-size: 11px;
   letter-spacing: 0.22em;
@@ -228,7 +212,7 @@
   transition: background 160ms ease, color 160ms ease;
 }
 
-.hero__cta:hover { background: var(--fg); color: var(--bg); }
+.hero__cta:hover { background: var(--bsod-ink); color: var(--bsod); }
 .hero__cta-icon { font-size: 9px; }
 
 .hero__stats {
@@ -237,7 +221,7 @@
   gap: 10px;
   font-size: 10px;
   letter-spacing: 0.22em;
-  color: var(--fg-dim);
+  color: var(--bsod-ink-dim);
   text-transform: uppercase;
 }
 
@@ -247,7 +231,7 @@
    WORKS
    ============================================================ */
 
-.works { gap: 18px; color: var(--fg); }
+.works { gap: 18px; }
 
 .works__head {
   display: flex;
@@ -255,7 +239,7 @@
   justify-content: space-between;
   gap: 24px;
   padding-bottom: 12px;
-  border-bottom: 1px solid var(--fg-line);
+  border-bottom: 1px solid var(--bsod-line);
 }
 
 .works__title {
@@ -275,7 +259,7 @@
 .works__count {
   font-size: 14px;
   letter-spacing: 0.22em;
-  color: var(--fg-dim);
+  color: var(--bsod-ink-dim);
 }
 
 .works__list {
@@ -292,20 +276,20 @@
   gap: 24px;
   align-items: center;
   padding: 14px 0;
-  border-bottom: 1px solid var(--fg-line);
+  border-bottom: 1px solid var(--bsod-line-soft);
   cursor: pointer;
   transition: padding-left 200ms ease, background 140ms ease;
 }
 
 .works__row:hover {
   padding-left: 12px;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .works__num {
   font-size: 11px;
   letter-spacing: 0.22em;
-  color: var(--fg-dim);
+  color: var(--bsod-ink-dim);
 }
 
 .works__name {
@@ -319,27 +303,23 @@
 .works__type {
   font-size: 10px;
   letter-spacing: 0.22em;
-  color: var(--fg-dim);
+  color: var(--bsod-ink-dim);
   text-transform: uppercase;
 }
 
 .works__status {
   font-size: 9px;
   letter-spacing: 0.22em;
-  border: 1px solid currentColor;
+  border: 1px solid var(--bsod-ink);
   padding: 4px 8px;
+  color: var(--bsod-ink);
 }
 
-.works__status--shipped { color: #4cd964; }
-.works__status--field { color: #ffb200; }
-.works__status--wip { color: #4ea6ff; }
-.works__status--archive { color: #888; }
-
 /* ============================================================
-   SPEC
+   SPEC — blueprint (white on blue)
    ============================================================ */
 
-.spec { gap: 20px; color: var(--ink); }
+.spec { gap: 20px; }
 
 .spec__head {
   display: flex;
@@ -347,7 +327,7 @@
   justify-content: space-between;
   gap: 24px;
   padding-bottom: 12px;
-  border-bottom: 1px solid var(--paper-line);
+  border-bottom: 1px solid var(--bsod-line);
 }
 
 .spec__title {
@@ -367,7 +347,7 @@
 .spec__id {
   font-size: 11px;
   letter-spacing: 0.22em;
-  color: var(--ink-dim);
+  color: var(--bsod-ink-dim);
 }
 
 .spec__body {
@@ -379,12 +359,12 @@
 }
 
 .spec__diagram {
-  border: 1px solid var(--paper-line);
+  border: 1px solid var(--bsod-line);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 24px;
-  color: var(--ink);
+  color: var(--bsod-ink);
 }
 
 .spec__table {
@@ -397,24 +377,21 @@
   display: grid;
   grid-template-columns: 1fr 1.4fr;
   padding: 14px 0;
-  border-bottom: 1px solid var(--paper-line);
+  border-bottom: 1px solid var(--bsod-line-soft);
   font-size: 12px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .spec__table-row:last-child { border-bottom: 0; }
-
-.spec__table-row dt { color: var(--ink-dim); margin: 0; }
-.spec__table-row dd { color: var(--ink); margin: 0; }
+.spec__table-row dt { color: var(--bsod-ink-dim); margin: 0; }
+.spec__table-row dd { color: var(--bsod-ink); margin: 0; }
 
 /* ============================================================
-   FOOTER (BSOD)
+   FOOTER
    ============================================================ */
 
-.frame--bsod { background: var(--bsod); }
-
-.footer { gap: 24px; color: var(--bsod-ink); }
+.footer { gap: 24px; }
 
 .footer__head {
   display: flex;
@@ -511,9 +488,7 @@
   gap: 6px;
 }
 
-.ghoform__row--full {
-  grid-column: 1 / -1;
-}
+.ghoform__row--full { grid-column: 1 / -1; }
 
 .ghoform__label {
   font-size: 9px;
