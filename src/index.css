@@ -1,0 +1,53 @@
+/* BBH Bartle: drop the font file at /public/fonts/BBHBartle.woff2 to enable.
+   Falls back to a heavy display stack so the layout is always intact. */
+@font-face {
+  font-family: "BBH Bartle";
+  src: url("/fonts/BBHBartle.woff2") format("woff2"),
+       url("/fonts/BBHBartle.woff") format("woff"),
+       url("/fonts/BBHBartle.otf") format("opentype");
+  font-display: swap;
+  font-weight: 100 900;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  background: #0a0a0a;
+  color: #ededed;
+  font-family: "42dot Sans", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+body,
+#root {
+  min-height: 100%;
+}
+
+/* Anywhere we render a literal & glyph, swap to Chivo Mono. */
+.amp {
+  font-family: "Chivo Mono", ui-monospace, monospace;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Technical/code numerals + labels */
+.tech {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-feature-settings: "ss01", "ss02";
+}
