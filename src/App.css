@@ -32,7 +32,9 @@
 
   /* Frame margin: outer band reserved for micrographics. */
   --frame-pad: 80px;
-  --frame-pad-top: 96px; /* extra so logo + topnav clear it */
+  /* top band has to clear: corner brackets (16px) + ruler (22px) + logo/nav
+     (~55px) + top stamps (~40px). Safe zone starts below all of them. */
+  --frame-pad-top: 132px;
 }
 
 /* ============================================================
@@ -309,30 +311,44 @@
   opacity: 0.85;
 }
 
-/* Stamps live in the top frame band only — the safe zone clears them. */
+/* Stamps live in a dedicated horizontal band BELOW the fixed Logo/TopNav
+   (which end ~55px from the top) and ABOVE the inner safe zone (132px).
+   They never overlap chrome or content. Width is capped so the left +
+   right stamps can't run into each other either. */
 .micro__stamp {
   position: absolute;
-  top: 38px;
+  top: 76px;
   font-size: 8.5px;
   letter-spacing: 0.22em;
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  flex-direction: row;
   text-transform: uppercase;
-  border-left: 1px solid currentColor;
-  padding-left: 6px;
-  max-height: 50px;
+  align-items: center;
+  white-space: nowrap;
+  max-width: 42vw;
+  overflow: hidden;
+  height: 22px;
 }
 
-.micro__stamp--tl { left: 64px; }
+.micro__stamp-row {
+  padding: 0 10px;
+  border-left: 1px solid currentColor;
+}
+
+.micro__stamp-row:first-child { border-left: 0; }
+
+.micro__stamp--tl {
+  left: 64px;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  border-left: 1px solid currentColor;
+}
+
 .micro__stamp--tr {
   right: 64px;
-  text-align: right;
-  border-left: 0;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
   border-right: 1px solid currentColor;
-  padding-left: 0;
-  padding-right: 6px;
-  align-items: flex-end;
 }
 
 /* Section ID anchored to bottom-left frame band */

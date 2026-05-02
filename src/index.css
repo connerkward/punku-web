@@ -16,11 +16,18 @@ body,
   -moz-osx-font-smoothing: grayscale;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 html {
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: scroll;
   scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
+  /* No smooth — snap should bite, not glide. */
+  scroll-behavior: auto;
+  overscroll-behavior-y: contain;
 }
 
 body,
