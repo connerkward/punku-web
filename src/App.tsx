@@ -3,6 +3,7 @@ import TopNav from "./components/TopNav";
 import Hero from "./components/Hero";
 import WorksPage from "./components/WorksPage";
 import SpecPage from "./components/SpecPage";
+import FleetPage from "./components/FleetPage";
 import Footer from "./components/Footer";
 import "./App.css";
 
@@ -20,6 +21,9 @@ export default function App() {
         </section>
         <section className="page__section page__section--spec">
           <SpecPage />
+        </section>
+        <section className="page__section page__section--fleet">
+          <FleetPage />
         </section>
         <section className="page__section page__section--footer">
           <Footer />

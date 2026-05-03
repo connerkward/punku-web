@@ -35,15 +35,15 @@ body,
   min-height: 100%;
 }
 
-/* Anywhere we render a literal & glyph, swap to Chivo Mono. */
+/* Anywhere we render a literal & glyph, swap to the mono italic. */
 .amp {
-  font-family: "Chivo Mono", ui-monospace, monospace;
+  font-family: "Atkinson Hyperlegible Mono", ui-monospace, monospace;
   font-weight: 400;
   font-style: italic;
 }
 
 /* Technical/code numerals + labels */
 .tech {
-  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-family: "Atkinson Hyperlegible Mono", ui-monospace, monospace;
   font-feature-settings: "ss01", "ss02";
 }

@@ -43,7 +43,21 @@ export default function ContactForm() {
       </div>
 
       <button type="submit" className="ghoform__submit">
-        {submitted ? "✓ DISPATCHED" : "▸ DISPATCH"}
+        {submitted ? (
+          <>
+            <svg className="ghoform__submit-icon" width="11" height="9" viewBox="0 0 11 9" aria-hidden="true">
+              <path d="M1 5 L4 8 L10 1" fill="none" stroke="currentColor" strokeWidth="1.6" />
+            </svg>
+            DISPATCHED
+          </>
+        ) : (
+          <>
+            <svg className="ghoform__submit-icon" width="9" height="10" viewBox="0 0 9 10" aria-hidden="true">
+              <polygon points="0,0 9,5 0,10" fill="currentColor" />
+            </svg>
+            DISPATCH
+          </>
+        )}
       </button>
     </form>
   );

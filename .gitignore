@@ -7,3 +7,8 @@ dist-ssr
 .env.local
 *.log
 .vite
+
+# scratch / playwright screenshots
+tmp/
+.playwright-mcp/
+/*.png

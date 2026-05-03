@@ -1,9 +1,11 @@
-/* Minimal frame: four corner brackets + one bottom-left section id +
-   one small barcode bottom-right. Nothing else. Pointer-events: none. */
+/* Minimal frame: four corner brackets + section id with Quechua/English/Japanese
+   triplet + one small barcode bottom-right. Pointer-events: none. */
 
 type Props = {
   sectionId: string;
   sectionName: string;
+  subtitle?: string;
+  ja?: string;
   barcode?: string;
   barcodeSeed?: number;
 };
@@ -36,6 +38,8 @@ function pseudoBars(seed: number) {
 export default function Micrographics({
   sectionId,
   sectionName,
+  subtitle,
+  ja,
   barcode,
   barcodeSeed = 0,
 }: Props) {
@@ -56,6 +60,12 @@ export default function Micrographics({
 
       <div className="micro__section-id tech">
         § {sectionId} &nbsp;/&nbsp; {sectionName}
+        {subtitle && (
+          <span className="micro__section-sub"> &nbsp;·&nbsp; {subtitle}</span>
+        )}
+        {ja && (
+          <span className="micro__section-ja ja"> &nbsp;·&nbsp; {ja}</span>
+        )}
       </div>
 
       {barcode && (
