@@ -4,10 +4,12 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
 type Variant = "coupe" | "wagon" | "truck";
 
+const BASE = import.meta.env.BASE_URL;
+
 const MODEL_FOR: Record<Variant, string> = {
-  coupe: "/models/sedan-sports.glb",
-  wagon: "/models/suv.glb",
-  truck: "/models/hatchback-sports.glb",
+  coupe: `${BASE}models/sedan-sports.glb`,
+  wagon: `${BASE}models/suv.glb`,
+  truck: `${BASE}models/hatchback-sports.glb`,
 };
 
 type Props = {
